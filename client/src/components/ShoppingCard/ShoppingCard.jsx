@@ -58,7 +58,7 @@ const styles = {
   card: {
     display: 'flex',
     alignItems: 'stretch',
-    backgroundColor: '#f9f9f9',
+    backgroundColor: 'white',
     borderRadius: '16px',
     padding: '24px',
     margin: '10px auto',
@@ -73,7 +73,7 @@ const styles = {
     height: '120px',
     objectFit: 'cover',
     borderRadius: '10px',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+    // boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
   },
   infoContainer: {
     flex: 1,

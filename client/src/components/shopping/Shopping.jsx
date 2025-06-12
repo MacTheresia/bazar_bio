@@ -68,32 +68,43 @@ export default function ShoppingScreen() {
                 />
               ))}
             </div>
-
             <div className="shopping-summary">
               <h3 className="summary-title">Récapitulatif</h3>
               <p>{cartItems.length} article(s)</p>
 
-              <div className="summary-items">
-                {cartItems.map((item, index) => (
-                  <div key={index} className="summary-item">
-                    <span>{item.title} × {item.quantity}</span>
-                    <span>{calculateItemTotal(item)} Ar</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="summary-total">
-                <span>Total :</span>
-                <span>{totalPrice} Ar</span>
-              </div>
+              <table className="summary-table">
+                <thead>
+                  <tr>
+                    <th>Article</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {cartItems.map((item, idx) => (
+                    <tr key={idx}>
+                      <td>{item.title}</td>
+                      <td className="text-center">{item.quantity}</td>
+                      <td className="text-right">{calculateItemTotal(item)} Ar</td>
+                    </tr>
+                  ))}
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colSpan="2" className="text-right footer-label">Total :</td>
+                    <td className="text-right footer-value">{totalPrice} Ar</td>
+                  </tr>
+                </tfoot>
+              </table>
 
               <button className="btn btn-pay" disabled={cartItems.length === 0}>
                 💳 Procéder au paiement
               </button>
             </div>
-          </div>
-        )}
-      </div>
+
+            </div>
+          )}
+        </div>
     </div>
   );
 }

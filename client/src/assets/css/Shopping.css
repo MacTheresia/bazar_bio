@@ -51,7 +51,7 @@
 /* Résumé à droite */
 .shopping-summary {
   flex: 1;
-  background-color: #f4f4f4;
+  background-color: white;
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
@@ -117,3 +117,54 @@
   color: #2e7d32;
 }
 
+/* Tableau récapitulatif */
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+.summary-table thead th {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  font-weight: 600;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #c8e6c9;
+}
+
+.summary-table tbody tr:nth-child(odd) {
+  background-color: #fafafa;
+}
+
+.summary-table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.summary-table tfoot .footer-label {
+  font-weight: 600;
+  padding-top: 12px;
+}
+
+.summary-table tfoot .footer-value {
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding-top: 12px;
+}
+
+/* Alignements */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Button paiement réajusté */
+.shopping-summary .btn-pay {
+  margin-top: 1.5rem;
+  width: 100%;
+}
