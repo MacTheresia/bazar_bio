@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom"; // <-- pour la navigation
 import Tooltip from "@mui/material/Tooltip";
 import HomeIcon from "@mui/icons-material/Home";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -6,8 +7,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SearchIcon from "@mui/icons-material/Search";
 import "../../styles/Header.css";
 
-export default function Header({  }) {
-
+export default function Header() {
   const tooltipStyle = {
     tooltip: {
       sx: {
@@ -29,6 +29,15 @@ export default function Header({  }) {
       <div className="header-container">
         <h1 className="logo">BazarBio</h1>
 
+        <form className="search-form">
+          <SearchIcon className="search-icon" />
+          <input
+            type="text"
+            placeholder="Rechercher..."
+            className="search-input"
+          />
+        </form>
+        
         <nav className="nav-icons">
           <Tooltip
             title="Accueil"
@@ -36,9 +45,9 @@ export default function Header({  }) {
             placement="bottom"
             slotProps={tooltipStyle}
           >
-            <div className="nav-item">
+            <Link to="/" className="nav-item">
               <HomeIcon fontSize="medium" />
-            </div>
+            </Link>
           </Tooltip>
 
           <Tooltip
@@ -47,9 +56,9 @@ export default function Header({  }) {
             placement="bottom"
             slotProps={tooltipStyle}
           >
-            <div className="nav-item">
+            <Link to="/panier" className="nav-item">
               <ShoppingCartIcon fontSize="medium" />
-            </div>
+            </Link>
           </Tooltip>
 
           <Tooltip
@@ -58,20 +67,11 @@ export default function Header({  }) {
             placement="bottom"
             slotProps={tooltipStyle}
           >
-            <div className="nav-item">
+            <Link to="/profil" className="nav-item">
               <AccountCircleIcon fontSize="medium" />
-            </div>
+            </Link>
           </Tooltip>
         </nav>
-
-        <form  className="search-form">
-          <SearchIcon className="search-icon" />
-          <input
-            type="text"
-            placeholder="Rechercher..."
-            className="search-input"
-          />
-        </form>
       </div>
     </header>
   );

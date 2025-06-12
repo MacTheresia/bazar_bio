@@ -5,7 +5,6 @@ import ProductList from '../../components/Product/ProductList';
 function Home() {
   return (
     <>
-      <Header />
       <Hero />
       <ProductList />
     </>
