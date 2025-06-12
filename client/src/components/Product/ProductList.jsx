@@ -42,7 +42,7 @@ export default function ProductList({ product }) {
     setShowCartPopup(false);
   };
   return (
-    <section className="product-section">
+    <section className="product-section" id="products">
       <h3 className="section-title">Nos produits</h3>
 
       <div className="product-grid">
@@ -103,13 +103,12 @@ export default function ProductList({ product }) {
         />
       )}
 
-      {showCartPopup &&
-        selectedProductForCart && (
-          <AddPopup
-            product={selectedProductForCart}
-            onClose={handleCloseCartPopup}
-          />
-        )}
+      {showCartPopup && selectedProductForCart && (
+        <AddPopup
+          product={selectedProductForCart}
+          onClose={handleCloseCartPopup}
+        />
+      )}
     </section>
   );
 }
