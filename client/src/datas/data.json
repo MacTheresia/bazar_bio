@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Casque Bluetooth",
+    "price": 59.99,
+    "image": "https://via.placeholder.com/200x150?text=Casque"
+  },
+  {
+    "id": 2,
+    "name": "Montre connectée",
+    "price": 89.99,
+    "image": "https://via.placeholder.com/200x150?text=Montre"
+  },
+  {
+    "id": 3,
+    "name": "Sac à dos",
+    "price": 39.99,
+    "image": "https://via.placeholder.com/200x150?text=Sac"
+  }
+]
