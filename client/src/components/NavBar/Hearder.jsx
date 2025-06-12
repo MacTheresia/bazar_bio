@@ -4,6 +4,7 @@ import Tooltip from "@mui/material/Tooltip";
 import HomeIcon from "@mui/icons-material/Home";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import SearchIcon from "@mui/icons-material/Search";
 import "../../styles/Header.css";
 
@@ -52,7 +53,7 @@ export default function Header() {
             className="search-input"
           />
         </form>
-        
+
         <nav className="nav-icons">
           <Tooltip
             title="Accueil"
@@ -73,6 +74,16 @@ export default function Header() {
           >
             <Link to="/panier" className="nav-item">
               <ShoppingCartIcon fontSize="medium" />
+            </Link>
+          </Tooltip>
+          <Tooltip
+            title="Favoris"
+            arrow
+            placement="bottom"
+            slotProps={tooltipStyle}
+          >
+            <Link to="/favoris" className="nav-item">
+              <FavoriteIcon fontSize="medium" />
             </Link>
           </Tooltip>
 

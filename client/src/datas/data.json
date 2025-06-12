@@ -1,20 +1,44 @@
 [
   {
     "id": 1,
-    "name": "Casque Bluetooth",
-    "price": 59.99,
-    "image": "https://via.placeholder.com/200x150?text=Casque"
+    "name": "Savon artisanal au miel",
+    "price": 5699,
+    "image": "savon.jpeg",
+    "description": "Un savon doux fabriqué à la main, enrichi au miel naturel pour nourrir et apaiser la peau en douceur."
   },
   {
     "id": 2,
-    "name": "Montre connectée",
-    "price": 89.99,
-    "image": "https://via.placeholder.com/200x150?text=Montre"
+    "name": "Shampoing solide coco-menthe",
+    "price": 7025,
+    "image": "shampoing.jpg",
+    "description": "Shampoing écologique sans plastique, alliant la fraîcheur de la menthe à la douceur de la noix de coco pour des cheveux revitalisés."
   },
   {
     "id": 3,
-    "name": "Sac à dos",
-    "price": 39.99,
-    "image": "https://via.placeholder.com/200x150?text=Sac"
+    "name": "Sac en coton biologique",
+    "price": 19829,
+    "image": "sacCoton.jpg",
+    "description": "Sac durable et réutilisable fabriqué à partir de coton 100 % bio, idéal pour vos courses ou sorties éco-responsables."
+  },
+  {
+    "id": 4,
+    "name": "Huile essentielle de ravintsara",
+    "price": 12000,
+    "image": "huile.jpeg",
+    "description": "Huile essentielle pure de ravintsara, reconnue pour ses vertus antivirales et son action stimulante sur l’immunité naturelle."
+  },
+  {
+    "id": 5,
+    "name": "Tisane détox bio",
+    "price": 6000,
+    "image": "detox.jpg",
+    "description": "Mélange naturel de plantes bio pour purifier l’organisme et favoriser le bien-être digestif au quotidien."
+  },
+  {
+    "id": 6,
+    "name": "Éponge lavable en bambou",
+    "price": 5000,
+    "image": "eponge.jpg",
+    "description": "Alternative zéro déchet aux éponges classiques, cette éponge en fibre de bambou est réutilisable et douce pour toutes les surfaces."
   }
 ]
