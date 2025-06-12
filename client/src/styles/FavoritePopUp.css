@@ -1,0 +1,82 @@
+.product-detail-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 1rem;
+}
+.favorite-popup {
+  position: fixed;
+  bottom: 54%;
+  left: 30%;
+  width: 30rem;
+  z-index: 1300;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  background-color: white;
+}
+
+.product-image-popUp {
+  max-width: 50%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.favorite-popup-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.favorite-popup-body {
+  display: flex;
+  align-items: flex-start;
+}
+
+.favorite-popup-image {
+  width: 100px;
+  height: 200px;
+  object-fit:fill;
+  border-radius: 8px;
+}
+
+.h6{
+    font-weight: bold;
+    font-size: 15px;
+}
+.body2{
+    font-size: 15px;
+}
+.favorite-popup-button {
+  position: relative;
+  overflow: hidden;
+  color: white;
+  background-color: #09033b;
+  border: none;
+  transition: color 0.4s ease;
+  z-index: 0;
+}
+.favorite-popup-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: white;
+  transform: translateX(100%);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+.favorite-popup-button:hover::before {
+  right: 0;
+}
+
+.favorite-popup-button:hover {
+  color: #09033b;
+}

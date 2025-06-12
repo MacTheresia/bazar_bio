@@ -1,60 +1,59 @@
-// src/components/FavoritePopup.jsx
-import React from "react";
+import React, { useEffect} from "react";
 import {
   Card,
-  CardMedia,
   CardContent,
-  Typography,
   Button,
   IconButton,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import "../../styles/FavoritePopUp.css";
+import { useNavigate } from "react-router-dom";
 
 export default function FavoritePopup({ product, onClose }) {
-  return (
-    <Card
-      sx={{
-        position: "fixed",
-        bottom: "20px",
-        right: "20px",
-        width: 300,
-        zIndex: 1300,
-        boxShadow: 6,
-        borderRadius: 2,
-        p: 1,
-        backgroundColor: "white",
-      }}
-    >
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <IconButton size="small" onClick={onClose}>
-          <CloseIcon fontSize="small" />
-        </IconButton>
-      </div>
+    const navigate = useNavigate();
 
-      <CardMedia
-        component="img"
-        height="140"
-        image={require(`../../assets/${product.image}`)}
-        alt={product.name}
-        sx={{ objectFit: "cover" }}
-      />
-      <CardContent>
-        <Typography variant="h6" gutterBottom>
-          {product.name}
-        </Typography>
-        <Typography variant="body2" sx={{ mb: 2 }}>
-          Ajouté aux favoris avec succès
-        </Typography>
-        <Button
-          variant="contained"
-          fullWidth
-          size="small"
-          onClick={() => console.log("Voir favoris")}
-          sx={{ textTransform: "none" }}
-        >
-          Voir favoris
-        </Button>
-      </CardContent>
-    </Card>
+     useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => {
+          document.body.style.overflow = "auto";
+        };
+      }, []);
+
+  return (
+    <div className="product-detail-overlay" onClick={onClose}>
+      <Card className="favorite-popup">
+        <div className="favorite-popup-header">
+          <IconButton size="small" onClick={onClose}>
+            <CloseIcon fontSize="small" />
+          </IconButton>
+        </div>
+
+        <div className="favorite-popup-body">
+          <div className="product-image-wrapper">
+            <img
+              src={require(`../../assets/${product.image}`)}
+              alt={product.name}
+              className="product-image-popUp"
+            />
+          </div>
+          <CardContent className="favorite-popup-content">
+            <p className="h6" gutterBottom>
+              {product.name}
+            </p>
+            <p className="body2">Ajouté aux favoris avec succès</p>
+            <Button
+              variant="contained"
+              color="success"
+              fullWidth
+              size="small"
+              className="favorite-popup-button"
+              onClick={() => navigate("/favoris")}
+            >
+              Voir favoris
+            </Button>
+          </CardContent>
+        </div>
+      </Card>
+    </div>
   );
 }

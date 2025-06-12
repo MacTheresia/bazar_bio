@@ -41,13 +41,13 @@
 .product-name {
   font-size: 1.1rem;
   color: #333;
-   height: 2.4rem; /* Ajuste selon la taille moyenne du texte */
+  height: 2.4rem;
   overflow: hidden;
   margin: 1rem 0 0.5rem;
 }
 
 .product-price {
-  color: #205c34;
+  color: #0dbd47;
   font-weight: bold;
   font-size: 1rem;
 }

@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
+import FavoritePopup from "../PopUp/FavoritePopUp";
+import AddPopup from "../PopUp/AddPopUp";
 import "../../styles/ProductDetail.css";
 
 export default function ProductDetail({ product, onClose }) {
   const [quantity, setQuantity] = useState(1);
+  const [showPopup, setShowPopup] = useState(false);
+  const [showCartPopup, setShowCartPopup] = useState(false);
+
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -28,14 +32,21 @@ export default function ProductDetail({ product, onClose }) {
     }
   };
 
-const handleAddToFavorites = () => {
-  setShowPopup(true);
-};
+  const handleAddToFavorites = () => {
+    setShowPopup(true);
+  };
 
-const handleClosePopup = () => {
-  setShowPopup(false);
-};
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
 
+    const handleAddToCart = () => {
+      setShowCartPopup(true);
+    };
+
+    const handleCloseCartPopup = () => {
+      setShowCartPopup(false);
+    };
 
   return (
     <div className="product-detail-overlay" onClick={onClose}>
@@ -43,6 +54,7 @@ const handleClosePopup = () => {
         <button className="close-btn" onClick={onClose}>
           ✖
         </button>
+
         <div className="product-detail-content">
           <div className="product-image-wrapper">
             <img
@@ -51,80 +63,75 @@ const handleClosePopup = () => {
               className="product-image"
             />
           </div>
+
           <div className="product-info">
             <h1 className="product-name">{product.name}</h1>
             <span className="product-price-Detail">{product.price} Ar</span>
             <p className="product-description">{product.description}</p>
 
-            {/* Conteneur quantité + bouton côte à côte */}
             <div
-              className="quantity-add-container"
+              className="product-quantity"
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "20px",
+                gap: "10px",
                 margin: "1rem 0",
               }}
             >
-              <div
-                className="product-quantity"
-                style={{ display: "flex", alignItems: "center", gap: "10px" }}
+              <IconButton
+                onClick={handleDecrement}
+                color="primary"
+                size="medium"
+                disabled={quantity <= 1}
               >
-                <IconButton
-                  onClick={handleDecrement}
-                  color="primary"
-                  size="medium"
-                  disabled={quantity <= 1}
-                >
-                  <RemoveIcon />
-                </IconButton>
-                <span
-                  style={{
-                    fontSize: "1.2rem",
-                    fontWeight: "bold",
-                    minWidth: "30px",
-                    textAlign: "center",
-                  }}
-                >
-                  {quantity}
-                </span>
-                <IconButton
-                  onClick={handleIncrement}
-                  color="primary"
-                  size="medium"
-                >
-                  <AddIcon />
-                </IconButton>
-              </div>
+                <RemoveIcon />
+              </IconButton>
+              <span
+                style={{
+                  fontSize: "1.2rem",
+                  fontWeight: "bold",
+                  minWidth: "30px",
+                  textAlign: "center",
+                }}
+              >
+                {quantity}
+              </span>
+              <IconButton
+                onClick={handleIncrement}
+                color="primary"
+                size="medium"
+              >
+                <AddIcon />
+              </IconButton>
+            </div>
 
+            <div
+              className="product-footer"
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
               <Button
                 variant="contained"
                 color="success"
+                onClick={handleAddToCart}
                 startIcon={<ShoppingCartIcon />}
               >
                 Ajouter au panier
               </Button>
             </div>
 
-            {/* Bouton Ajouter aux favoris en bas, centré */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "1rem",
-              }}
-            >
+            <div style={{ marginTop: "1rem" }}>
               <Button
-                variant="outlined"
-                startIcon={<FavoriteIcon />}
                 onClick={handleAddToFavorites}
-                size="small"
+                startIcon={<FavoriteBorderIcon />}
                 sx={{
                   color: "black",
-                  borderColor: "black",
+                  textTransform: "none",
                   "&:hover": {
                     color: "green",
-                    borderColor: "green",
                   },
                 }}
               >
@@ -133,6 +140,13 @@ const handleClosePopup = () => {
             </div>
           </div>
         </div>
+
+        {showPopup && (
+          <FavoritePopup product={product} onClose={handleClosePopup} />
+        )}
+        {showCartPopup && (
+          <AddPopup product={product} onClose={handleCloseCartPopup} />
+        )}
       </div>
     </div>
   );
