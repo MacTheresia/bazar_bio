@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"; // <-- pour la navigation
+import { Link, useNavigate } from "react-router-dom";
 import Tooltip from "@mui/material/Tooltip";
 import HomeIcon from "@mui/icons-material/Home";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -8,6 +8,12 @@ import SearchIcon from "@mui/icons-material/Search";
 import "../../styles/Header.css";
 
 export default function Header() {
+  const [showDropdown, setShowDropdown] = useState(true);
+  const navigate = useNavigate();
+
+  // Temporaire - sera remplacé par le vrai état d'authentification
+  const isLoggedIn = false; 
+
   const tooltipStyle = {
     tooltip: {
       sx: {
@@ -22,6 +28,15 @@ export default function Header() {
         },
       },
     },
+  };
+
+  const handleProfileClick = (e) => {
+    e.preventDefault();
+    if (isLoggedIn) {
+      setShowDropdown(!showDropdown);
+    } else {
+      navigate("/auth");
+    }
   };
 
   return (
@@ -61,16 +76,39 @@ export default function Header() {
             </Link>
           </Tooltip>
 
-          <Tooltip
-            title="Profil"
-            arrow
-            placement="bottom"
-            slotProps={tooltipStyle}
-          >
-            <Link to="/profil" className="nav-item">
-              <AccountCircleIcon fontSize="medium" />
-            </Link>
-          </Tooltip>
+          <div className="profile-container">
+            <Tooltip
+              title="Profil"
+              arrow
+              placement="bottom"
+              slotProps={tooltipStyle}
+            >
+              <div className="nav-item" onClick={handleProfileClick}>
+                <AccountCircleIcon fontSize="medium" />
+              </div>
+            </Tooltip>
+
+            {showDropdown && isLoggedIn && (
+              <div className="dropdown-menu">
+                <Link 
+                  to="/mon-compte" 
+                  className="dropdown-item"
+                  onClick={() => setShowDropdown(false)}
+                >
+                  Mon Compte
+                </Link>
+                <div 
+                  className="dropdown-item" 
+                  onClick={() => {
+                    // Fonction de déconnexion sera ajoutée ici plus tard
+                    setShowDropdown(false);
+                  }}
+                >
+                  Déconnexion
+                </div>
+              </div>
+            )}
+          </div>
         </nav>
       </div>
     </header>
