@@ -1,52 +1,28 @@
 import React from "react";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
+
+import "../../styles/Footer.css";
 
 export default function Footer() {
   return (
-    <footer style={styles.footer}>
-      <div style={styles.container}>
-        <p style={styles.text}>
-          © {new Date().getFullYear()} BazarBio. Tous droits réservés.
-        </p>
-        <nav style={styles.nav}>
-          <a href="#" style={styles.link}>
-            Accueil
-          </a>
-          <a href="#" style={styles.link}>
-            Produits
-          </a>
-          <a href="#" style={styles.link}>
-            Contact
-          </a>
-        </nav>
+    <footer className="footer">
+      <div className="footer-container">
+        <h2 className="footer-title">Contactez-nous</h2>
+        <div className="footer-info-item">
+          <LocationOnIcon className="footer-icon" />
+          <span>123 Rue Verte, Antananarivo, Madagascar</span>
+        </div>
+        <div className="footer-info-item">
+          <EmailIcon className="footer-icon" />
+          <span>contact@bazarbio.mg</span>
+        </div>
+        <div className="footer-info-item">
+          <PhoneIcon className="footer-icon" />
+          <span>+261 34 12 345 67</span>
+        </div>
       </div>
     </footer>
   );
 }
-
-const styles = {
-  footer: {
-    backgroundColor: "#205c34",
-    color: "white",
-    padding: "1rem 0",
-    marginTop: "2rem",
-    textAlign: "center",
-  },
-  container: {
-    maxWidth: "960px",
-    margin: "0 auto",
-  },
-  text: {
-    margin: "0.5rem 0",
-  },
-  nav: {
-    marginTop: "0.5rem",
-    display: "flex",
-    justifyContent: "center",
-    gap: "1rem",
-  },
-  link: {
-    color: "white",
-    textDecoration: "none",
-    fontWeight: "bold",
-  },
-};
