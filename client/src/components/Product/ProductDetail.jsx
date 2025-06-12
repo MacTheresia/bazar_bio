@@ -118,6 +118,7 @@ export default function ProductDetail({ product, onClose }) {
                 color="success"
                 onClick={handleAddToCart}
                 startIcon={<ShoppingCartIcon />}
+                className="animated-button"
               >
                 Ajouter au panier
               </Button>

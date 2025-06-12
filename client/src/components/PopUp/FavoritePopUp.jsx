@@ -8,6 +8,8 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import "../../styles/FavoritePopUp.css";
 import { useNavigate } from "react-router-dom";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+
 
 export default function FavoritePopup({ product, onClose }) {
     const navigate = useNavigate();
@@ -40,7 +42,18 @@ export default function FavoritePopup({ product, onClose }) {
             <p className="h6" gutterBottom>
               {product.name}
             </p>
-            <p className="body2">Ajouté aux favoris avec succès</p>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                color: "green",
+                marginBottom: "1rem",
+              }}
+            >
+            <CheckCircleIcon fontSize="small" />
+            <span>Ajouté aux favoris avec succès</span>
+            </div>
             <Button
               variant="contained"
               color="success"

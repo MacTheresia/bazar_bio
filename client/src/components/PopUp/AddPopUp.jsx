@@ -3,6 +3,7 @@ import { Card, CardContent, Button, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import "../../styles/AddPopUp.css";
 import { useNavigate } from "react-router-dom";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 export default function AddPopup({ product, onClose }) {
   const navigate = useNavigate();
@@ -35,7 +36,18 @@ export default function AddPopup({ product, onClose }) {
             <p className="h6" gutterBottom>
               {product.name}
             </p>
-            <p className="body2">Ajout au panier avec succès</p>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                color: "green",
+                marginBottom: "1rem",
+              }}
+            >
+              <CheckCircleIcon fontSize="small" />
+              <span>Ajouté aux favoris avec succès</span>
+            </div>
             <div
               style={{
                 display: "flex",
@@ -58,7 +70,16 @@ export default function AddPopup({ product, onClose }) {
                 color="success"
                 fullWidth
                 size="small"
-                className="favorite-popup-button"
+                sx={{
+                  backgroundColor: "#09033b",
+                  color: "white",
+                  textTransform: "none",
+                  "&:hover": {
+                    backgroundColor: "white",
+                    color: "#09033b",
+                  },
+                }}
+                className="animated-checkout-button"
                 onClick={() => navigate("/panier")}
               >
                 Passer commande
