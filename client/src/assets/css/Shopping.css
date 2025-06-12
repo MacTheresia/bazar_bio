@@ -1,0 +1,119 @@
+/* Fond flouté et superposition */
+.shopping-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.3); /* semi-transparent blanc */
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px;
+  overflow-y: auto;
+}
+
+/* Container global */
+.shopping-container {
+  width: 90%;
+  max-width: 1200px;
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Titre */
+.shopping-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Layout général */
+.shopping-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* Liste des articles à gauche */
+.shopping-items {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Résumé à droite */
+.shopping-summary {
+  flex: 1;
+  background-color: #f4f4f4;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 40px;
+}
+
+.summary-title {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.summary-items {
+  margin-bottom: 16px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  border-top: 1px solid #ccc;
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+.btn-pay {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+.btn-pay:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-back {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-back:hover {
+  color: #2e7d32;
+}
+

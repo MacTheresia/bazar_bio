@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
-import TopBar from './TopBar';
 import PersonalInfo from './sections/PersonalInfo';
 import Addresses from './sections/Addresses';
 import Orders from './sections/Orders';
@@ -24,7 +23,6 @@ const AccountPage = () => {
     <div className="account-container">
       <Sidebar />
       <div className="account-main">
-        <TopBar />
         <div className="account-content">
           <PersonalInfo />
           <Addresses />
